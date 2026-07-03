@@ -1,0 +1,2 @@
+const JWT_SECRET="ENTER YOUR JWT_SECRET "
+module.exports={JWT_SECRET};
