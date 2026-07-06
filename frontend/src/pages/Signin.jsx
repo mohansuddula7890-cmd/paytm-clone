@@ -21,7 +21,7 @@ export const Signin=()=>{
         }
         setLoading(true);
         try{
-            const response=await axios.post("http://localhost:3000/api/v1/user/signin",{username,password})//,{headers:{"Content-Type":"application/json"}}
+            const response=await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/signin`,{username,password})//,{headers:{"Content-Type":"application/json"}}
             console.log(response.data);
             // //if any wrong inputs or server error they go to catch.if all is good below lines will execute
             localStorage.setItem("token",response.data.token);
@@ -34,6 +34,7 @@ export const Signin=()=>{
             navigate("/dashboard");
 
         }catch(err){
+            console.log(err.message);
             if(err.response){//server errors like 400,401,500
                 setError(err.response?.data?.message||"Signin failed");
             }else if(err.request){//no response from server

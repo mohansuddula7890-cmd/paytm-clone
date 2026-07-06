@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/v1/user',userRouter);
 app.use('/api/v1/account',accountRouter);
-app.get('/test',(req,res)=>{
+app.post('/',(req,res)=>{
     res.json({
-        msg:"good morning"
+        msg:"use this route for signup /api/v1/user/signup "
     })
 })
 

@@ -18,7 +18,7 @@ export const Dashboard=()=>{
                  const token=localStorage.getItem("token");
                  console.log(token);
                  if(!token) throw new Error("Not authenticated");
-                 const balanceResponse=await axios.get("http://localhost:3000/api/v1/account/balance",
+                 const balanceResponse=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/account/balance`,
                 {
                     headers:{Authorization:`Bearer ${token}`}
 

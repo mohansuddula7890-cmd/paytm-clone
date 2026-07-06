@@ -1,7 +1,7 @@
 import {
   Route,Routes
-
 }from "react-router-dom";
+
 import { useEffect,useState } from "react";
 import axios from "axios";
 import {Signup} from "./pages/Signup"
@@ -10,14 +10,14 @@ import {Signup} from "./pages/Signup"
 import {SendMoney} from "./pages/SendMoney"
 function App() {
   const[msg,setMessage]=useState("");
-  localStorage.setItem("test", "Hello Mohan");
-            const value = localStorage.getItem("test");
+  // localStorage.setItem("test", "Hello Mohan");
+  //           const value = localStorage.getItem("test");
   useEffect(()=>{
-        localStorage.setItem("test", "Hello Mohan");
-            const value = localStorage.getItem("test");
+        // localStorage.setItem("test", "Hello Mohan");
+        //     const value = localStorage.getItem("test");
     const getMesg=async(req,re)=>{
       try{
-        const res=await axios.get('http://localhost:3000/test')
+        const res=await axios.get('http://localhost:3000/')
         setMessage(res.data.msg)
       }catch(e){
         console.log(e);
@@ -35,7 +35,7 @@ function App() {
         {/* <BrowserRouter> this is done in main.jsx file*/}
         <Routes>
           <Route path="/" element={  <h1>PAYMENT APP 
-            <h1>{msg} {value}</h1>
+            <h1>{msg} </h1>
 
           </h1>}/>
           

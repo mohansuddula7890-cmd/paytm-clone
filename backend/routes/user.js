@@ -1,7 +1,9 @@
 const express=require("express");
 const router=express.Router();
+require("dotenv").config();
+
  const jwt=require("jsonwebtoken");
-  const {JWT_TOKEN, JWT_SECRET}=require("../config")
+
 const zod=require("zod");
 //import{zod} from"zod";
 const {user,account}=require("../db");
@@ -53,7 +55,7 @@ router.post("/signup",async(req,res)=>{
         })
         const token=jwt.sign({
             userId:dbuser._id//userId word declartion
-        },JWT_SECRET);
+        },process.env.JWT_SECRET);
 
         return res.json({
             message:"created successfilly",
@@ -88,7 +90,7 @@ router.post("/signin",async(req,res)=>{
                 message:"Incorrect password"
             })
         }
-        const token=jwt.sign({userId:usere._id},JWT_SECRET);
+        const token=jwt.sign({userId:usere._id},process.env.JWT_SECRET);
         const firstname=usere.firstname
         res.json({
             message:"signed in successfuly",

@@ -21,7 +21,7 @@ export const Users=()=>{
                     throw new Error("Not authenticated");
 
                 }
-                const response=await axios.get(`http://localhost:3000/api/v1/user/getallusers?filter=${filter}`,{
+                const response=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/getallusers?filter=${filter}`,{
                     //${filter} insert variable value into string,only works inside ` ` not ""
                     headers:{
                         Authorization:`Bearer ${token}`

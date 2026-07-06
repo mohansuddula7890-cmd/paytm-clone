@@ -25,7 +25,7 @@ export const Appbar=({username})=>{//{username="User"} default prop is prop not 
       try{
         const token=localStorage.getItem("token");
         if(!token) throw new Error("Not Authenticated")
-            const response=await fetch("http://localhost:3000/api/v1/user/me",{
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/api/v1/user/me`,{
         method:"DELETE",
         headers:{
             "Authorization":`Bearer ${token}`
